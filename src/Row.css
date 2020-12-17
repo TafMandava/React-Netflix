@@ -1,0 +1,16 @@
+.row__posters {
+  display: flex; /* Flex box changes a column display to a row display */
+}
+
+.row__poster {
+  object-fit: contain; /* Keep the  aspect ratio. Irregardless of how much we resize and reshaoe it it's going to keep it looking. It comes into play when we implement a max-height of 100px */
+  width: 100%;
+  max-height: 100px;
+  margin-right: 10px; /* All the pictures are toucking each other, we need space inbetween the pictures even when we resize the browser window */
+  transition: transform 450ms; /* If it ever changes size for any reason it will do it in a slow way */
+}
+
+/* Adding a hover effect */
+.row__poster:hover {
+  /* Whenever we hover do the following */
+}
