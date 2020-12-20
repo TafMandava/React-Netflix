@@ -39,17 +39,17 @@ function Row({title, fetchUrl, isLargeRow}) {
 
        The first argument is a function
        The second argument is an empty array
-       If we leave the second argument blank (empty array) we are saying run once when the row loads, and don't run it again - Only on page load
-       Else of we pass in a variable movies e.g. [movies], run once when the row loads and run every single time when movies changes - On page load and when the variable movies changes
+       If we leave the second argument blank (empty array) we are saying run once when the row loads, and don't run it again - Only run on page load
+       Else if we pass in a variable movies e.g. [movies], run once when the row loads and run every single time when movies changes - Run on page load and when the variable movies changes
 
     */
     useEffect(() => {
         // Make an asynchronus call inside useEffect. However, you have to do it in a special way
-        //Write a little internal function and call it
+        // Write a little internal function and call it
         // That's how you do it inside a useEffect
         async function fetchData() {
             //await - When you make the request wait for the promise or answer to come back then do something
-            const request = await axios.get(fetchUrl); // Similar to append https://api.themoviedb.org/3/trending/all/week?api_key=f969f8853cfd7c8afab42fa245dd5a85&language=en-US
+            const request = await axios.get(fetchUrl); // Similar to append i.e. https://api.themoviedb.org/3/trending/all/week?api_key=f969f8853cfd7c8afab42fa245dd5a85&language=en-US
             console.log(request); // Finding out the data structure
             setMovies(request.data.results);
             return request;
