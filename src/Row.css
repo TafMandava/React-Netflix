@@ -1,5 +1,23 @@
+/*
+    The outside row is touching the sides, but l do not want it to touch the sides
+*/
+.row {
+  color: white;
+  margin-left: 20px; /* Push to right */
+}
+
 .row__posters {
   display: flex; /* Flex box changes a column display to a row display */
+  /* On Netflix just the row moves. Heders do not move. At the moment our entire App moves rather than the row. */
+  overflow-y: hidden; /* If there is any room for a scroll bar we are going to hide that. */
+  overflow-x: scroll; /* The x-axis should now be a scroll */
+  padding: 20px; /* Add a padding so that it doesn't crop the top of the images on hovering, but this will add a scroll bar so we need to hideit */
+}
+
+/* Create a rule to hide the scroll bar produced when the 20px anti cropping padding is added */
+.row__posters::-webkit-scrollbar {
+  /* A rule to say that tell all of the browsers e.g. Edge, Chrome, Firefox e.t.c. to not display the scroll bar but keep its functionality*/
+  display: none;
 }
 
 .row__poster {
@@ -7,10 +25,25 @@
   width: 100%;
   max-height: 100px;
   margin-right: 10px; /* All the pictures are toucking each other, we need space inbetween the pictures even when we resize the browser window */
-  transition: transform 450ms; /* If it ever changes size for any reason it will do it in a slow way */
+  transition: transform 450ms; /* Apply a very smooth delay. If it ever changes size for any reason it will do it in a slow way */
 }
 
 /* Adding a hover effect */
 .row__poster:hover {
-  /* Whenever we hover do the following */
+  /* Whenever we hover do the following - We want it to grow a little bit */
+  transform: scale(1.08); /* Transfrom and Scale to 1.08 of the original size */
+}
+
+/*
+    A normal tile has a height of 100px and a larger tile has a height of 250px
+*/
+.row__posterLarge {
+  max-height: 250px;
+}
+
+/*
+   Give it a slightly bigger hover of 1.09 instead od 1.08
+*/
+.row__posterLarge:hover {
+  transform: scale(1.09);
 }

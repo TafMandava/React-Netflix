@@ -1,0 +1,34 @@
+.nav {
+  position: fixed; /* We want it to be at the top all the times */
+  top: 0; /* Stick to the top of the file */
+  width: 100%;
+  padding: 20px; /* Applying padding shifts the Avatar further to the right. This is solved by giving the bav__logo a fixed position and push away from the left by 20px and editing the nav__avatar position to fixed and push away from the right by 20px */
+  height: 30px; /* We know the size of the logo and avatar so it will be easy to set the height */
+  z-index: 1; /* Because it's a header, it's always a good idea to set the z-index to 1 */
+
+  /* display: flex; /* By default this should turn it into a logo but the size of the netflix logo compromises the layout. So we need to style the logo seperately - We need a smooth transition */
+  /* justify-content: space-between; /* Flex box should determine what the space should be. This is the edge case where you would think that things are broken. The reason being that when you use the position fixed with the flex box display and justification it doesn't behave the way you want it to. Unless if we set the width to 100%  - We need a smooth transition */
+  /* background-color: #111; /* I do not want the black background to comeup until we scroll down. Commented out after adding nav__black rule because this always applied the black navigation background */
+
+  /* Animation */
+  transition-timing-function: ease-in; /* For all of your transitions how do you wamt to handle them. Ease in gives you a gradual fade in */
+  transition: all 0.5s; /* dd a transition to everything that we are doing in the transition-timing-function. Where or not the width or opacity change e.t.c. Add a 0.5 second delay so that it can have a smooth delay */
+}
+
+.nav__black {
+  background-color: #111;
+}
+
+.nav__logo {
+  position: fixed;
+  left: 20px;
+  width: 80px;
+  object-fit: contain; /* Keep the aspect ratio */
+}
+
+.nav__avatar {
+  position: fixed;
+  right: 20px;
+  width: 30px;
+  object-fit: contain;
+}
