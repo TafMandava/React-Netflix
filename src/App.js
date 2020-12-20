@@ -32,3 +32,7 @@ function App() {
 }
 
 export default App;
+
+/*
+    https://netflix-clone-7d741.web.app/
+*/
